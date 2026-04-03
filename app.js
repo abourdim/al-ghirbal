@@ -641,7 +641,7 @@
 
   /* ========== STATE ========== */
   let currentLang = localStorage.getItem('ghirbal-lang') || 'ar';
-  let currentTheme = localStorage.getItem('ghirbal-theme') || 'kashf';
+  let currentTheme = localStorage.getItem('ghirbal-theme'); if(!currentTheme || currentTheme==='null' || !['kashf','haqiqa','noor'].includes(currentTheme)) currentTheme='kashf';
   let quizIndex = 0;
   let quizCorrect = parseInt(localStorage.getItem('ghirbal-quiz-correct') || '0', 10);
   let quizTotal = parseInt(localStorage.getItem('ghirbal-quiz-total') || '0', 10);
@@ -1203,8 +1203,9 @@
       });
     });
 
-    // Theme switches
-    $$('.theme-btn').forEach((btn) => {
+    // Theme switches (only for buttons with data-theme attribute, not the cycle button)
+    $$('.theme-btn[data-theme]').forEach((btn) => {
+      if (btn.id === 'themeToggle') return; // skip cycle button
       btn.addEventListener('click', () => {
         applyTheme(btn.getAttribute('data-theme'));
         playClick();

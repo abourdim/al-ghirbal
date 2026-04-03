@@ -4,7 +4,7 @@
    =================================== */
 
 /* ---------- CSS VARIABLES / THEMES ---------- */
-:root {
+:root, [data-theme="kashf"] {
   /* Kashf (Reveal) — Default Red Theme */
   --bg: #FFF8F6;
   --bg-card: #FFFFFF;
