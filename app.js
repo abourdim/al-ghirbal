@@ -820,7 +820,11 @@
     setTimeout(initScrollReveal, 100);
 
     playTab();
+    // Auto-render quiz when switching to quiz tab
+  if (name === 'quiz' && document.getElementById('quizContainer') && !document.getElementById('quizContainer').innerHTML.trim()) {
+    renderQuiz();
   }
+}
 
   /* ========== SHARE FUNCTIONALITY ========== */
   function shareMyth(mythId) {
