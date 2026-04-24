@@ -315,7 +315,8 @@ button {
 /* HEADER — hajj-guide faithful */
 .app-header{background:var(--bg-card,var(--card,#fff));border-bottom:1px solid var(--border,var(--brd,#e8dfd2));position:sticky;top:0;z-index:100;box-shadow:0 2px 12px var(--shadow,rgba(44,36,23,.07))}
 .header-inner{max-width:960px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:14px;position:relative}
-.workshop-logo{position:absolute;left:16px;width:36px;height:36px;border-radius:50%;background:var(--primary,#8B1A1A);color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;text-decoration:none;opacity:.8;transition:.3s}
+.workshop-logo{position:absolute;left:16px;width:36px;height:36px;border-radius:50%;background:var(--primary,#8B1A1A);display:flex;align-items:center;justify-content:center;text-decoration:none;opacity:.85;transition:.3s;overflow:hidden;padding:3px;box-sizing:border-box}
+.workshop-logo img{width:100%;height:100%;object-fit:contain;display:block}
 .workshop-logo:hover{opacity:1;transform:scale(1.1)}
 [dir="rtl"] .workshop-logo{left:auto;right:16px}
 .logo{display:flex;align-items:center;gap:10px}
@@ -1521,6 +1522,30 @@ button {
   .tab-label { font-size: 0.55rem; }
   .splash-guide-items { gap: 1rem; }
   .splash-guide-icon { font-size: 1.5rem; }
+}
+
+/* Mobile header — prevents absolute-positioned controls overlapping logo */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .header-controls {
+    position: static;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  [dir="rtl"] .header-controls { left: auto; }
+  .logo-icon { font-size: 1.5rem; }
+  .logo h1 { font-size: 1.15rem; }
+  .theme-btn,
+  .help-btn,
+  .narrator-btn { width: 32px; height: 32px; font-size: 0.95rem; }
+  .lang-opt { padding: 3px 6px; }
+  .lang-opt svg { width: 18px; height: 12px; }
+  .workshop-logo { width: 28px; height: 28px; font-size: 0.8rem; }
 }
 
 @media (min-width: 768px) {
